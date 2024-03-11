@@ -7,3 +7,17 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+10.times do
+  user = User.create!(
+           name: Faker::JapaneseMedia::OnePiece.unique.character,
+           email: Faker::Internet.unique.email
+         )
+
+  3.times do
+    Task.create!(
+      user_id: user.id,
+      title: Faker::Food.unique.fruits,
+      description: Faker::Food.description
+    )
+  end
+end
