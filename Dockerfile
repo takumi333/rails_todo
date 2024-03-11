@@ -13,19 +13,18 @@ RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
     && apt-get update -qq \
     && apt-get install -y build-essential nodejs vim
 
-RUN mkdir /app
-WORKDIR /app
+WORKDIR /myapp
 
-COPY Gemfile /app/Gemfile
-COPY Gemfile.lock /app/Gemfile.lock
-COPY package.json /app/package.json
-COPY package-lock.json /app/package-lock.json
+COPY Gemfile /myapp/Gemfile
+COPY Gemfile.lock /myapp/Gemfile.lock
+COPY package.json /myapp/package.json
+COPY package-lock.json /myapp/package-lock.json
 
 RUN gem install bundler
 RUN bundle install
 RUN npm install
 
-COPY . /app
+COPY . /myapp
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
