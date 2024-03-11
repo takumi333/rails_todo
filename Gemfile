@@ -49,6 +49,8 @@ group :development, :test do
   # gem "debug", platforms: %i[ mri windows ]
 
   gem "pry-rails"
+
+  gem 'faker'
 end
 
 group :development do
