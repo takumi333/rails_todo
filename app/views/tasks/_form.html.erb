@@ -1,0 +1,9 @@
+<%= form_with model:task do |f| %>
+  <%= f.label :title, "title" %>
+  <%= f.text_filed :title %>
+
+  <%= f.label :description, "description" %>
+  <%= f.text_filed :description %>
+
+  <%= form.submit "submit" %>
+<% end %>
