@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   root "home#top"
   resource :user, only: [:new]
   get 'user/login', to: 'users#login'
-  resources :tasks, only: [:index, :new, :show, :edit]
+  resources :tasks
 end
