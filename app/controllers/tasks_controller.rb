@@ -18,14 +18,14 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    if @task.create
+    if @task.save
       redirect_to tasks_path, notice: '保存しました'
     else
       render new_task_path, notice: '保存に失敗しました'
     end
   end
 
-  def updated
+  def update
 
   end
 
@@ -35,7 +35,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:tasks).permit(:user_id, :title, :description)
+    params.require(:task).permit(:user_id, :title, :description)
   end
 
   def user_task
