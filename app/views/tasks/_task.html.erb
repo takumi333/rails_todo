@@ -3,5 +3,6 @@
     <td><%=task.title%></td>
     <td><%=task.description.truncate(60)%></td>
     <td><%= button_to 'タスク詳細', task_path(task), method: :get %></td>
+    <td><%= link_to 'delete_task', task_path(task), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %></td>
   </tr>
 </tbody>
