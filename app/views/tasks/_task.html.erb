@@ -1,6 +1,7 @@
 <tbody>
   <tr>
     <td><%=task.title%></td>
-    <td><%=task.description%></td>
+    <td><%=task.description.truncate(60)%></td>
+    <td><%= button_to 'タスク詳細', task_path(task), method: :get %></td>
   </tr>
 </tbody>

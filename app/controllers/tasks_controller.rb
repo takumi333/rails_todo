@@ -9,9 +9,7 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
-  def show
-
-  end
+  def show;end
 
   def edit
   end
