@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VerificationApp</title>
+    <title>rails_todo_App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <%= render 'shared/flash_message' %>
     <%= yield %>
   </body>
 </html>

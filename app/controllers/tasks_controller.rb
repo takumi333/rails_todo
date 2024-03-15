@@ -16,12 +16,14 @@ class TasksController < ApplicationController
   def edit
   end
 
+  # おそらく、userのidとuser_idがまだ含まれていないため、保存ができない。
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
     if @task.save
       redirect_to tasks_path, notice: '保存しました'
     else
-      render new_task_path, notice: '保存に失敗しました'
+      flash.now[:error] = '保存に失敗しました'
+      render new_task_path
     end
   end
 
@@ -35,7 +37,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:user_id, :title, :description)
+    params.require(:task).permit(:title, :description)
   end
 
   def user_task
