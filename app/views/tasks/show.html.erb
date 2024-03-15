@@ -1,0 +1,9 @@
+<h1>Task Show!</h1>
+
+<div>
+  <%= render partial: "show", locals: {task: @user_task} %>
+</div>
+
+<div>
+  <%= link_to 'task_list', tasks_path %>
+</div>
