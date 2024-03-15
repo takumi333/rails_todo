@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :user_task, only: [:show]
+  before_action :user_task, only: [:show, :destroy]
 
   def index
     @tasks = Task.all.includes(:user)
@@ -36,8 +36,9 @@ class TasksController < ApplicationController
     end
   end
 
-  def destory
-    
+  def destroy
+    @user_task.destroy!
+    redirect_to tasks_path, notice: '削除しました'
   end
 
   private
