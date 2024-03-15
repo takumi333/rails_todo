@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :user_task, only: [:show, :edit]
+  before_action :user_task, only: [:show]
 
   def index
     @tasks = Task.all.includes(:user)
@@ -12,6 +12,7 @@ class TasksController < ApplicationController
   def show;end
 
   def edit
+    @task = Task.find(params[:id])
   end
 
   # おそらく、userのidとuser_idがまだ含まれていないため、保存ができない。
@@ -26,7 +27,13 @@ class TasksController < ApplicationController
   end
 
   def update
-
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      redirect_to tasks_path, notice: '保存しました'
+    else
+      flash.now[:error] = '保存に失敗しました'
+      render edit_task_path
+    end
   end
 
   def destory
