@@ -7,8 +7,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.label :encrypted_password %><br />
+    <%= f.password_field :encrypted_password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :encrypted_password_confirmation %><br />
+    <%= f.password_field :encrypted_password_confirmation, autocomplete: "current-password" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
