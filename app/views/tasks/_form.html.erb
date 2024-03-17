@@ -1,4 +1,6 @@
 <%= form_with model:task do |f| %>
+  <%= render partial: 'shared/errors', locals: { object: f.object } %>
+
   <%= f.label :title, "title" %>
   <%= f.text_field :title %>
 

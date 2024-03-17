@@ -8,6 +8,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 12 }
   validates :email, presence: true, length: { maximum: 30 }, format: { with: URI::MailTo::EMAIL_REGEXP, message: "適切なメールアドレスではありません" }
-  validates :encrypted_password, presence: true, length: { maximum: 30 }, format: { with: /\A[a-zA-Z0-9]+\z/, message: "英文字のみが使えます" }, confirmation: true
-  validates :encrypted_password_confirmation, presence: true, length: { maximum: 12 }
+  validates :password, presence: true, length: { maximum: 30 }, format: { with: /\A[a-zA-Z0-9]+\z/, message: "英数字のみが使えます" }, confirmation: true
+  validates :password_confirmation, presence: true, length: { maximum: 12 }
 end
