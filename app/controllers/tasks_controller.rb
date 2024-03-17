@@ -22,7 +22,7 @@ class TasksController < ApplicationController
       redirect_to tasks_path, notice: '保存しました'
     else
       flash.now[:error] = '保存に失敗しました'
-      render new_task_path
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -32,7 +32,7 @@ class TasksController < ApplicationController
       redirect_to tasks_path, notice: '保存しました'
     else
       flash.now[:error] = '保存に失敗しました'
-      render edit_task_path
+      render :edit, status: :unprocessable_entity
     end
   end
 

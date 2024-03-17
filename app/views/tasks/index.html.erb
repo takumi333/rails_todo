@@ -11,4 +11,5 @@
 </table>
 
 <%= link_to 'top_page', root_path %> 
-<%= link_to 'new_task', new_task_path %> 
+<%= link_to 'new_task', new_task_path %>
+<%= link_to 'logout', destroy_user_session_path, data: { turbo_method: :delete } %>

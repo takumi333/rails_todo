@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     # デフォルトで許可されているemail,password,password_confirmationに加えて、nameも追加で許可。
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:sign_in)
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:password_confirmation])
   end
 end
